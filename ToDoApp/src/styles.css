@@ -1,0 +1,13 @@
+.center{
+    text-align: center;
+    text-decoration: none;
+}
+.inputBorder{
+    border-radius: 5px 5px 5px;
+}
+.height{
+    height: 40px;
+}
+.changeCompleted{
+    background-color: green;
+}

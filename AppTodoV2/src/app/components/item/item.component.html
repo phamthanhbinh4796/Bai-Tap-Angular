@@ -1,0 +1,4 @@
+<b>Name:</b> {{ item.name }}  <b>Completed:</b> {{ item.isComplete }} 
+<button class="btn btn-primary" (click) = "changeComplete(item.id)">Complete</button> &nbsp;
+<button class="btn btn-danger" (click) = "deleteTodo(item.id)">Delete</button>
+

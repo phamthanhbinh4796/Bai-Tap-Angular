@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ title }}</h3>
+    </div>
+    <div class="panel-body">
+      <app-input (text) = "onHandleText($event)"></app-input>
+      <br>
+      <app-list [sendTodo] = "todos" (idComplete) = "onHandleComplete($event)" (idDelete) = "onHandleDelete($event)">
+      </app-list>
+    </div>
+  </div>
+  
+  <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Algorithms</h3>
+      </div>
+      <div class="panel-body">
+        
+        <div class="input-group">
+          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Input Number" #input>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" (click) = "generateSpiralMatrix(input.value)">Print Matrix</button>
+          </span>
+        </div>
+        <ul *ngFor="let item of matrix">
+          {{ item }}
+        </ul>
+      </div>
+  </div>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">Custom Drop</h3>
+    </div>
+    <div class="panel-body">
+      <div appDropdownlist>
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">Structural Directive</h3>
+    </div>
+    <div class="panel-body">
+      <p *appUnless="condition" >
+        (A) This paragraph is displayed because the condition is false.
+      </p>
+      
+      <p *appUnless="!condition">
+        (B) Although the condition is true,
+        this paragraph is displayed because appUnless is set to false.
+      </p>
+    </div>
+  </div>
+</div>
+
+

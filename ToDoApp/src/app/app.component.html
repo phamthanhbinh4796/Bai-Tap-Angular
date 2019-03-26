@@ -1,0 +1,44 @@
+<div [class.center] = "true">
+  <h1>{{ title }}</h1>
+  <h3>Enter text into the input field to add items to your list.</h3> 
+  <h3>Click the item to mark it as complete.</h3> 
+  <h3>Click the "X" to remote the item from your list.</h3>
+
+  <input type="text" [class.inputBorder] = "true" [class.height] = "true" placeholder="Enter Todo" [(ngModel)]="name">
+  <button type="button" [class.height] = "true" (click) = "addTodo()">ADD</button>
+  
+  <div>
+    <br>
+    <ul *ngFor="let item of todos" [ngStyle]="{'list-style-type': 'none'}">
+      <li>
+        <b (click) = "changeCompleted(item.taskName)" [ngClass]="{changeCompleted: item.completed}">Task Name: {{ item.taskName }} Completed: {{ item.completed }} </b>
+        <button (click) = "deleteTodo(item.taskName)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Matrix</h3>
+        </div>
+        <div class="panel-body">
+          
+          <input type="number" class="form-control" #numberOfMatrix>
+          
+          <button type="button" class="btn btn-success" (click) = generateSpiralMatrix(numberOfMatrix.value)>button</button>
+          
+          <ul *ngFor="let item of matrix">
+            {{ item }}
+          </ul>
+          
+        </div>
+    </div>
+</div>
+
+
+
+

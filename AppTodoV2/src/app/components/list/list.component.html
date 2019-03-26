@@ -1,0 +1,8 @@
+
+<span class="label label-success">List Todos</span>
+<ul *ngFor="let item of todoSend" class="list-group">
+    <li class="list-group-item">
+        <app-item [todoItem] = "item" (idComplete) = "onHandleComplete($event)" (idDelete) = "onHandleDelete($event)"></app-item>
+    </li>
+</ul>
+

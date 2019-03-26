@@ -1,0 +1,49 @@
+<h1>{{ title }}</h1>
+<br>
+<h3>OrderBy: </h3>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li (click) = "sort('id')">Id</li>
+    <li (click) = "sort('firstName')">FirtName</li>
+    <li (click) = "sort('lastName')">LastName</li>
+    <li (click) = "sort('email')">Email</li>
+    <li (click) = "sort('salary')">Salary</li>
+    <li (click) = "sort('birthday')">Birthday</li>
+  </ul>
+</div>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>Birthday</th>
+      <th>Salary</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let item of objects">
+      <td> {{ item.id }}</td>
+      <td> {{ item.first }}</td>
+      <td> {{ item.last }}</td>
+      <td> {{ item.handle }}</td>
+    </tr> -->
+    <tr *ngFor="let item of persons | sortObject : check">
+      <td>{{ item.id }}</td>
+      <td>{{ item.firstName }}</td>
+      <td>{{ item.lastName }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.gender }}</td>
+      <td>{{ item.birthday | date: 'dd/MM/yyyy'}}</td>
+      <td>{{ item.salary }}</td>
+      <td>{{ item.phone | phonePipe}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
