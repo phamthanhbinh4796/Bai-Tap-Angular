@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="row">
+  <div class="col-md-2">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/inbox']" (click) = "changeIcon('inbox')"><i class="fa" [class.fa-folder-open] = "icon === 'inbox'" [class.fa-folder] = "icon !== 'inbox'"></i> inbox</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/finance']" (click) = "changeIcon('finance')"><i class="fa" [class.fa-folder-open] = "icon === 'finance'" [class.fa-folder] = "icon !== 'finance'"></i> finance</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/travel']" (click) = "changeIcon('travel')"><i class="fa" [class.fa-folder-open] = "icon === 'travel'" [class.fa-folder] = "icon !== 'travel'"></i> travel</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/personal']" (click) = "changeIcon('personal')"><i class="fa" [class.fa-folder-open] = "icon === 'personal'" [class.fa-folder] = "icon !== 'personal'"></i> personal</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/spam']" (click) = "changeIcon('spam')"><i class="fa" [class.fa-folder-open] = "icon === 'spam'" [class.fa-folder] = "icon !== 'spam'"></i> spam</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/draft']" (click) = "changeIcon('drafts')"><i class="fa" [class.fa-folder-open] = "icon === 'drafts'" [class.fa-folder] = "icon !== 'drafts'"></i> drafts</li>
+      <li class="list-group-item list-group-item-action" [routerLink]="['/mymessage/sent']" (click) = "changeIcon('sent')"><i class="fa" [class.fa-folder-open] = "icon === 'sent'" [class.fa-folder] = "icon !== 'sent'"></i> sent</li>
+    </ul>
+  </div>
+  <div class="col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<router-outlet name="messageDetail"></router-outlet>

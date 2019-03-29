@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="header">
+      <div class="row" style="background-color: darkgray">
+        <div class="col-md-8">
+          <h4>{{ message.subject}}</h4>
+          <h5>{{ message.from }} => {{ message.to}}</h5>
+        </div>
+        <div class="col-md-4 ml-auto">
+          <h5>{{ message.date | date: 'MMMM dd, yyyy hh:mm:ss aaa'}}</h5>
+          <button class="btn btn-primary"><i class="fa fa-reply"></i> Reply</button>
+          <button class="btn btn-primary"><i class="fa fa-forward"></i> Forward</button>
+          <button class="btn btn-primary"><i class="fa fa-times"></i> Delete</button>
+        </div>
+      </div>
+      </div>
+    <div class="body">
+
+    </div>
+  </div>
+</div>
+<p>
+  {{message.body}}
+</p>

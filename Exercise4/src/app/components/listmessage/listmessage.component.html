@@ -1,0 +1,18 @@
+<div style="max-height: 350px" class="scroll">
+  <table>
+    <tr>
+      <th>Sender</th>
+      <th>Subject</th>
+      <th>Date</th>
+    </tr>
+    <tr *ngFor="let item of messages | sortmessage" [routerLink]="['/mymessage', { outlets: { messageDetail: [item._id] } }]" (click) = "color(item._id)" [ngStyle]="{'background-color': item._id === changeColor ? 'cornflowerblue' : ''}">
+      <td>{{ item.from | slice:0:35}}...</td>
+      <td>{{ item.subject }} </td>
+      <td>{{ item.date | date: 'yyyy-MM-dd'}} </td>
+    </tr>
+  </table>
+  <router-outlet></router-outlet>
+</div>
+
+
+

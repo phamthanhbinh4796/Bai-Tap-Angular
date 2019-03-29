@@ -1,0 +1,26 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="['/mymessage']">Messages</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="['/contact']">Contacts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="['/references']">References</a>
+    </li>
+  
+    <li class="nav-item dropdown rightMenu ml-auto" appLogout>
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{userSession}}</a>
+      <div class="mock hoverdrop">
+        <button class="btn btn-primary" (click) = "logout()">Log Out</button>
+      </div>
+    </li>
+    <li class="nav-item rightMenu">
+      <button class="btn btn-primary" style="width:50px"><i class="fa fa-home"></i></button>
+    </li>
+    <li class="nav-item rightMenu">
+      <button class="btn btn-primary"><i class="fa fa-envelope"></i> New Message</button>
+    </li>
+  </ul>
+</div>
