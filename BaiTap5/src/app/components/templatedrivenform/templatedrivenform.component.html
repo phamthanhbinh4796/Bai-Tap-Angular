@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 header">
+      <h1>Survey Form Using Template Driven Form</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 body">
+      <form (ngSubmit) = "onSubmit()" #frmInfomation = "ngForm">
+        <p class="title">Let us know how we can improve freeCodeCamp</p>
+        <div class="form-group">
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Name:
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control" placeholder="Enter Your Name" name="name" #nameUser="ngModel" [(ngModel)]="name" required>
+              <p class="error" *ngIf="nameUser.errors?.required && nameUser.dirty">Name is required</p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Email:
+            </div>
+            <div class="col-md-7">
+              <input type="Email" 
+                     class="form-control" 
+                     placeholder="Enter Your Email" 
+                     name="email" 
+                     #emailUser="ngModel" 
+                     [(ngModel)]="email" 
+                     pattern= "[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                     required>
+              <p class="error" *ngIf="emailUser.errors?.required && emailUser.dirty">Email is required</p>
+              <p class="error" *ngIf="emailUser.dirty && emailUser.errors?.pattern">
+                Wrong email format
+              </p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Age:
+            </div>
+            <div class="col-md-7">
+              <input type="number" class="form-control" placeholder="Age" name="age" #ageUser= "ngModel" [(ngModel)]="age" required>
+              <p class="error" *ngIf="ageUser.errors?.required && ageUser.dirty">Age is required</p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Which option best describes your current role?
+            </div>
+            <div class="col-md-7">
+              <select class="form-control" name="role">
+                <option disabled>Select an option</option>
+                <option selected>Student</option>
+                <option>Full Time Job</option>
+                <option>Full Time Learner</option>
+                <option>Prefer Not To Say</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> How likely is that you would recommend freeCodeCamp to a friend?
+            </div>
+            <div class="col-md-7">
+              <div class="check-radio">
+                <div class="radio">
+                  <label><input type="radio" name="recommend" value ="Definitely" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Definitely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="recommend" value="Maybe" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Maybe</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="recommend" value = "Not Sure" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Not sure</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              What do you like most in FCC
+            </div>
+            <div class="col-md-7">
+              <select class="form-control" name="fcc">
+                <option disabled selected>Select an option</option>
+                <option>Challenges</option>
+                <option>Projects</option>
+                <option>Community</option>
+                <option>Open Source</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Things that should be improved in the future
+              (Check all that apply):
+            </div>
+            <div class="col-md-7">
+              <div class="check-radio">
+
+                <div class="form-check" *ngFor="let item of improves" >
+                  <label class="form-check-label">
+                    <input 
+                      type="checkbox" 
+                      class="form-check-input" 
+                      value="" 
+                      name = "improve"
+                      > {{ item }}
+                  </label>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Any Comments or Suggestions?
+            </div>
+            <div class="col-md-7">
+              <textarea placeholder="Enter your comment here..." class="form-control" name="comment"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="!frmInfomation.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

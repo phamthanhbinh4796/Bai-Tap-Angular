@@ -1,0 +1,35 @@
+.container{
+    background-color: #a9d7d1;
+    margin-top: 5px;
+}
+.header>h1{
+    text-align: center;
+}
+.body{
+    background-color: white;
+    margin-bottom: 20px;
+}
+.title{
+    text-align: center;
+    padding-top: 20px;
+}
+.label{
+    text-align: right;
+    margin-top: 6px;
+}
+.record{
+    margin-bottom: 15px;
+}
+.form-control{
+    width: 70%;
+}
+.check-radio{
+    margin-top: 10px;
+}
+button{
+    margin-left: 50%;
+}
+.error{
+    color: red;
+    font-size: 14px;
+}

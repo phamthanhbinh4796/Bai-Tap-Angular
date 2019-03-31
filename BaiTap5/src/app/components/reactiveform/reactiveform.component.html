@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 header">
+      <h1>Survey Form Using Reactive Form</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 body">
+      <form [formGroup]="frmInfomation" (ngSubmit) = "onSubmit()">
+        <p class="title">Let us know how we can improve freeCodeCamp</p>
+        <div class="form-group">
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Name:
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control" placeholder="Enter Your Name" formControlName="name">
+              <p class="error" *ngIf="frmInfomation.controls.name.dirty && frmInfomation.controls.name.errors?.required">
+                  Name cannot be empty
+              </p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Email:
+            </div>
+            <div class="col-md-7">
+              <input type="Email" class="form-control" placeholder="Enter Your Email" formControlName="email">
+              <p class="error" *ngIf="frmInfomation.controls.email.dirty && frmInfomation.controls.email.errors?.required">
+                  Email cannot be empty
+              </p>
+              <p class="error" *ngIf="frmInfomation.controls.email.dirty && frmInfomation.controls.email.errors?.email">
+                Wrong email format
+              </p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> Age:
+            </div>
+            <div class="col-md-7">
+              <input type="number" class="form-control" placeholder="Age" formControlName="age">
+              <p class="error" *ngIf="frmInfomation.controls.age.dirty && frmInfomation.controls.age.errors?.required">
+                  Age cannot be empty
+              </p>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Which option best describes your current role?
+            </div>
+            <div class="col-md-7">
+              <select class="form-control" formControlName="role">
+                <option disabled>Select an option</option>
+                <option selected>Student</option>
+                <option>Full Time Job</option>
+                <option>Full Time Learner</option>
+                <option>Prefer Not To Say</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              <span style="color: red">*</span> How likely is that you would recommend freeCodeCamp to a friend?
+            </div>
+            <div class="col-md-7">
+              <div class="check-radio">
+                <div class="radio">
+                  <label><input type="radio" name="recommend" formControlName="recommend" value ="Definitely" > Definitely</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="recommend" formControlName="recommend" value="Maybe"> Maybe</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="recommend" formControlName="recommend" value = "Not Sure"> Not sure</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              What do you like most in FCC
+            </div>
+            <div class="col-md-7">
+              <select class="form-control" formControlName="fcc">
+                <option disabled selected>Select an option</option>
+                <option>Challenges</option>
+                <option>Projects</option>
+                <option>Community</option>
+                <option>Open Source</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Things that should be improved in the future
+              (Check all that apply):
+            </div>
+            <div class="col-md-7">
+              <div class="check-radio">
+
+                <div class="form-check" *ngFor="let item of improves; let i = index;" >
+                  <label class="form-check-label">
+                    <input 
+                      type="checkbox" 
+                      class="form-check-input" 
+                      value="Front-end Projects" 
+                      id = "improve{{i}}" 
+                      > {{ item }}
+                  </label>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="row record">
+            <div class="col-md-5 label">
+              Any Comments or Suggestions?
+            </div>
+            <div class="col-md-7">
+              <textarea placeholder="Enter your comment here..." class="form-control" formControlName="comment"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled] = "frmInfomation.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
