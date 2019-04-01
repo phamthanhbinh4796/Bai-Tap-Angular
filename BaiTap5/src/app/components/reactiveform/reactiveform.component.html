@@ -57,11 +57,7 @@
             <div class="col-md-7">
               <select class="form-control" formControlName="role">
                 <option disabled>Select an option</option>
-                <option selected>Student</option>
-                <option>Full Time Job</option>
-                <option>Full Time Learner</option>
-                <option>Prefer Not To Say</option>
-                <option>Other</option>
+                <option *ngFor="let item of roles">{{ item }}</option>
               </select>
             </div>
           </div>
@@ -72,14 +68,8 @@
             </div>
             <div class="col-md-7">
               <div class="check-radio">
-                <div class="radio">
-                  <label><input type="radio" name="recommend" formControlName="recommend" value ="Definitely" > Definitely</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="recommend" formControlName="recommend" value="Maybe"> Maybe</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="recommend" formControlName="recommend" value = "Not Sure"> Not sure</label>
+                <div class="radio" *ngFor="let item of recomments">
+                  <label><input type="radio" name="recommend" formControlName="recommend" value ="{{ item }}" > {{ item }}</label>
                 </div>
               </div>
             </div>
@@ -91,11 +81,8 @@
             </div>
             <div class="col-md-7">
               <select class="form-control" formControlName="fcc">
-                <option disabled selected>Select an option</option>
-                <option>Challenges</option>
-                <option>Projects</option>
-                <option>Community</option>
-                <option>Open Source</option>
+                <option selected disabled>Select an option</option>
+                <option *ngFor="let item of fccs">{{ item }}</option>
               </select>
             </div>
           </div>

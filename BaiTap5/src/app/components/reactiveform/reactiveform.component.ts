@@ -22,6 +22,24 @@ export class ReactiveformComponent implements OnInit {
       'Forum',
       'Additional Courses'
   ];
+  roles: any[] = [
+    'Student',
+    'Full Time Job',
+    'Full Time Learner',
+    'Prefer Not To Say',
+    'Other',
+  ];
+  recomments: any[] = [
+    'Definitely',
+    'Maybe',
+    'Not sure'
+  ];
+  fccs: any[] = [
+    'Challenges',
+    'Projects',
+    'Community',
+    'Open Source'
+  ];
   constructor(
     private _fromBuilder: FormBuilder
   ) {

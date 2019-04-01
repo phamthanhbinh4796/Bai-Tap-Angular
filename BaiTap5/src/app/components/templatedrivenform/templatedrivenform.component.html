@@ -57,12 +57,8 @@
             </div>
             <div class="col-md-7">
               <select class="form-control" name="role">
-                <option disabled>Select an option</option>
-                <option selected>Student</option>
-                <option>Full Time Job</option>
-                <option>Full Time Learner</option>
-                <option>Prefer Not To Say</option>
-                <option>Other</option>
+                <option disabled>Select an option</option>                
+                <option *ngFor="let item of roles, let i = index" [selected] = "i === 0">{{ item }}</option>
               </select>
             </div>
           </div>
@@ -73,14 +69,8 @@
             </div>
             <div class="col-md-7">
               <div class="check-radio">
-                <div class="radio">
-                  <label><input type="radio" name="recommend" value ="Definitely" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Definitely</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="recommend" value="Maybe" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Maybe</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="recommend" value = "Not Sure" #recommendUser = "ngModel" [(ngModel)]="recommend" required> Not sure</label>
+                <div class="radio" *ngFor="let item of recomments">
+                  <label><input type="radio" name="recommend" value ="{{ item }}" #recommendUser = "ngModel" [(ngModel)]="recommend" required> {{ item }}</label>
                 </div>
               </div>
             </div>
@@ -93,10 +83,7 @@
             <div class="col-md-7">
               <select class="form-control" name="fcc">
                 <option disabled selected>Select an option</option>
-                <option>Challenges</option>
-                <option>Projects</option>
-                <option>Community</option>
-                <option>Open Source</option>
+                <option *ngFor="let item of fccs">{{ item }}</option>
               </select>
             </div>
           </div>
