@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-3" *ngFor="let item of artists">
+    <img [src]="item.images.length != 0 ? item.images[0].url : 'https://images.immediate.co.uk/volatile/sites/3/2017/11/imagenotavailable1-39de324.png?quality=90&resize=768,574'" (click) = "showListTrack(item.id)"
+    />
+    <p>Name: {{item.name}}</p>
+    <p>Popularity: {{item.popularity}}</p>
+    <p>Genres: {{item.genres}}</p>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
