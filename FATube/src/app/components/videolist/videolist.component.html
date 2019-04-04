@@ -1,0 +1,46 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-10">
+            <h3><b>List Of Results</b></h3>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-push-6">
+                        <label>Filter</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" (change) = "onSort($event)">
+                          <option selected disabled>Choose Type Of Sort</option>
+                          <option value = "date">Date</option>
+                          <option value = "title">Title</option>
+                        </select>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item" 
+    *ngFor="let item of videos | paginate: { itemsPerPage: 5, currentPage: p }" 
+    (click) = "playVideo(item.id.videoId)"
+  >
+    <div class="row">
+      <div class="col-md-3">
+        <img src= "{{item.snippet.thumbnails.high.url}}" />
+      </div>
+      <div class="col-md-9">
+        <h5>{{item.snippet.description}}</h5>
+        <p>{{item.snippet.channelTitle}}</p>
+        <p>{{item.snippet.title}}</p>
+        <p>{{item.snippet.publishedAt | date: 'dd-MM-yyyy'}}</p>
+      </div>
+    </div>
+  </li>
+</ul>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
